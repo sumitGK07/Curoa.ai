@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Hospitals Near You — Curoa.AI</title>
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/hospitals.css">
+</head>
+<body data-page="hospitals">
+
+<header class="site-topbar">
+  <a href="index.html" class="brand">
+    <img src="assets/logo.svg" alt="">
+    <span class="brand-name">Curoa<span class="ai">.AI</span></span>
+  </a>
+  <nav class="site-nav">
+    <a href="index.html">Chat</a>
+    <a href="hospitals.html" class="active">Hospitals</a>
+  </nav>
+  <div class="topbar-actions">
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+    </button>
+    <a href="login.html" class="btn btn-secondary btn-sm" id="auth-cta">Sign in</a>
+  </div>
+</header>
+
+<div class="hospitals-page">
+  <div class="hosp-hero">
+    <h1>Find hospitals near you</h1>
+    <p>Search nearby hospitals, clinics, and urgent care centers. Filter by availability, distance, or care type, and get directions in one tap.</p>
+  </div>
+
+  <div class="hosp-search-bar">
+    <div class="hosp-search-field">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="text" id="hosp-search-input" placeholder="Search by hospital name, clinic type, or area…" aria-label="Search hospitals">
+    </div>
+    <select class="filter-select" id="hosp-sort" aria-label="Sort results">
+      <option value="distance">Sort: Nearest</option>
+      <option value="rating">Sort: Highest rated</option>
+      <option value="name">Sort: Name (A–Z)</option>
+    </select>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-chip active" data-type="all">All</button>
+    <button class="filter-chip" data-type="open">Open now</button>
+    <button class="filter-chip" data-type="emergency">Emergency &amp; trauma</button>
+    <button class="filter-chip" data-type="clinic">Clinics</button>
+    <button class="filter-chip" data-type="pediatric">Pediatric</button>
+    <button class="filter-chip" data-type="urgent">Urgent care</button>
+  </div>
+
+  <div class="hosp-layout">
+    <section class="hosp-results">
+      <div class="hosp-results-head">
+        <span id="hosp-count">— found</span>
+        <span>Based on your approximate location</span>
+      </div>
+      <div id="hosp-results"></div>
+    </section>
+
+    <aside class="map-panel">
+      <div class="map-placeholder">
+        <div class="map-pin">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/></svg>
+        </div>
+        <div class="map-note">Map view — connect a maps &amp; geolocation API to enable this</div>
+      </div>
+      <div class="map-panel-detail" id="map-detail">
+        <div class="empty-state">
+          <p>Select a hospital to see details here.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/hospitals.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    CuroaHospitals.initHospitalsPage();
+    const user = CuroaAPI.getCurrentUser();
+    if (user) {
+      const cta = document.getElementById("auth-cta");
+      cta.textContent = user.full_name ? user.full_name.split(" ")[0] : "Account";
+      cta.href = "index.html";
+    }
+  });
+</script>
+</body>
+</html>

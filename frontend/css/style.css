@@ -1,0 +1,264 @@
+/* =========================================================
+   Curoa.AI — Global Design Tokens & Base Styles
+   Palette: clinical blue + teal + white + light-gray
+   Type: Outfit (display) / Inter (body) / IBM Plex Mono (data)
+   Signature motif: the "pulse line" (ECG-inspired)
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ---- Color tokens (light) ---- */
+  --color-primary: #0F5C8C;       /* clinical blue */
+  --color-primary-dark: #0A4468;
+  --color-primary-light: #E4EEF5;
+  --color-accent: #14B8A6;        /* teal */
+  --color-accent-light: #E1F7F4;
+  --color-urgent: #E85D4E;        /* soft coral, used sparingly for urgent CTAs */
+  --color-urgent-light: #FDEAE7;
+
+  --color-ink: #10202C;
+  --color-ink-soft: #4B6273;
+  --color-ink-faint: #7C93A1;
+
+  --color-bg: #F4F7F9;            /* cloud */
+  --color-surface: #FFFFFF;
+  --color-surface-raised: #FFFFFF;
+  --color-border: #DFE7EC;
+  --color-border-soft: #EBF1F4;
+
+  --gradient-brand: linear-gradient(135deg, #0F5C8C 0%, #14B8A6 100%);
+
+  /* ---- Type ---- */
+  --font-display: 'Outfit', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', monospace;
+
+  /* ---- Spacing / radius / shadow ---- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(16, 32, 44, 0.06);
+  --shadow-md: 0 8px 24px rgba(16, 32, 44, 0.08);
+  --shadow-lg: 0 20px 48px rgba(16, 32, 44, 0.14);
+
+  --sidebar-w: 272px;
+  --hospitals-w: 320px;
+  --topbar-h: 64px;
+
+  --transition: 180ms cubic-bezier(.4,0,.2,1);
+}
+
+[data-theme="dark"] {
+  --color-primary: #4FA3D9;
+  --color-primary-dark: #7CC0E8;
+  --color-primary-light: #123245;
+  --color-accent: #2DD4C0;
+  --color-accent-light: #0F3A36;
+  --color-urgent: #F08677;
+  --color-urgent-light: #3A2220;
+
+  --color-ink: #EAF1F5;
+  --color-ink-soft: #B3C4CF;
+  --color-ink-faint: #7E93A0;
+
+  --color-bg: #0B161D;
+  --color-surface: #101F28;
+  --color-surface-raised: #142834;
+  --color-border: #1F3846;
+  --color-border-soft: #1A2E39;
+
+  --gradient-brand: linear-gradient(135deg, #4FA3D9 0%, #2DD4C0 100%);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  transition: background var(--transition), color var(--transition);
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0; line-height: 1.55; }
+
+a { color: inherit; text-decoration: none; }
+
+button, input, textarea, select { font-family: inherit; }
+
+img, svg { display: block; max-width: 100%; }
+
+::selection { background: var(--color-accent-light); color: var(--color-primary-dark); }
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- Reusable atoms ---- */
+
+.mono { font-family: var(--font-mono); letter-spacing: -0.01em; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+  white-space: nowrap;
+}
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: var(--gradient-brand);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover { box-shadow: var(--shadow-md); }
+
+.btn-secondary {
+  background: var(--color-surface);
+  color: var(--color-primary);
+  border-color: var(--color-border);
+}
+.btn-secondary:hover { border-color: var(--color-primary); background: var(--color-primary-light); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-ink-soft);
+}
+.btn-ghost:hover { background: var(--color-border-soft); color: var(--color-ink); }
+
+.btn-block { width: 100%; }
+.btn-sm { padding: 8px 14px; font-size: 13px; }
+
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-open { background: var(--color-accent-light); color: #0C7A6C; }
+.badge-closed { background: var(--color-urgent-light); color: #B33F32; }
+.badge-unknown { background: var(--color-border-soft); color: var(--color-ink-faint); }
+
+.badge-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+/* ---- Pulse-line signature motif ---- */
+.pulse-line {
+  width: 100%;
+  height: 28px;
+  color: var(--color-accent);
+  opacity: 0.9;
+}
+.pulse-line path {
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  animation: pulse-draw 2.4s ease-in-out infinite;
+}
+@keyframes pulse-draw {
+  0%   { stroke-dashoffset: 220; }
+  50%  { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -220; }
+}
+
+/* ---- Top brand lockup ---- */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand img { width: 30px; height: 30px; }
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-ink);
+}
+.brand-name .ai { color: var(--color-accent); }
+
+/* ---- Scrollbars (webkit) ---- */
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 8px; }
+*::-webkit-scrollbar-thumb:hover { background: var(--color-ink-faint); }
+
+/* ---- Medical disclaimer banner (shared) ---- */
+.disclaimer {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: var(--color-primary-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  font-size: 12.5px;
+  color: var(--color-ink-soft);
+  line-height: 1.5;
+}
+.disclaimer svg { flex-shrink: 0; color: var(--color-primary); margin-top: 1px; }
+.disclaimer strong { color: var(--color-ink); }
+
+/* ---- Toast ---- */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  background: var(--color-ink);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition), transform var(--transition);
+  z-index: 1000;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+
+/* ---- Utility ---- */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.visually-hide { display: none !important; }
+
+.container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }

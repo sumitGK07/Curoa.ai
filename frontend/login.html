@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in — Curoa.AI</title>
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body data-page="login">
+
+<div class="auth-shell">
+  <div class="auth-form-side">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.svg" alt="">
+      <span class="brand-name">Curoa<span class="ai">.AI</span></span>
+    </a>
+
+    <div class="auth-form-wrap">
+      <h1>Welcome back</h1>
+      <p class="auth-sub">Sign in to continue your health conversations and saved hospital searches.</p>
+
+      <form id="login-form" novalidate>
+        <div class="form-alert"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span data-alert-text></span></div>
+
+        <div class="field-group" data-field="email">
+          <label for="email">Email address</label>
+          <div class="field-input">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6 12 13 2 6"/><path d="M2 6h20v12H2z"/></svg>
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+          </div>
+          <div class="field-error">Enter a valid email address.</div>
+        </div>
+
+        <div class="field-group" data-field="password">
+          <label for="password">Password</label>
+          <div class="field-input">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password">
+            <button type="button" class="toggle-visibility" aria-label="Show password">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div class="field-error">Enter your password.</div>
+        </div>
+
+        <div class="field-row-between">
+          <label class="remember-check"><input type="checkbox" name="remember"> Remember me</label>
+          <a href="#" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+      </form>
+
+      <p class="auth-switch">Don't have an account? <a href="signup.html">Sign up</a></p>
+
+      <div class="disclaimer">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.3 3.9 1.8 18a1.5 1.5 0 0 0 1.3 2.3h17.8a1.5 1.5 0 0 0 1.3-2.3L13.7 3.9a1.5 1.5 0 0 0-2.6 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <span>Curoa.AI provides general health information and is not a substitute for professional medical advice, diagnosis, or treatment.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="auth-art-side">
+    <div class="auth-art-content">
+      <div class="art-eyebrow">Curoa.AI</div>
+      <h2>A calmer way to understand what your body is telling you.</h2>
+      <p>Ask about symptoms, get general guidance, and know when it's time to see a doctor — all in one place.</p>
+      <div class="art-feature-list">
+        <div class="feature-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Your conversations, saved and searchable</div>
+        <div class="feature-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Hospitals near you, always one tap away</div>
+        <div class="feature-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Clear guidance on when to seek urgent care</div>
+      </div>
+    </div>
+    <svg class="auth-art-pulse" height="60" viewBox="0 0 420 60" fill="none">
+      <path d="M0 30h60l14-22 18 44 16-30 12 16h30l14-26 18 40 16-22h236" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

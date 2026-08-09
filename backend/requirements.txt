@@ -1,0 +1,23 @@
+# Curoa.AI backend — dependencies
+# Web framework
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+
+# Database (MySQL via SQLAlchemy)
+SQLAlchemy==2.0.35
+PyMySQL==1.1.1
+cryptography==43.0.1        # required by PyMySQL for modern MySQL auth
+alembic==1.13.3              # database migrations
+
+# Auth & security
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.3.0
+python-multipart==0.0.9
+
+# Validation / settings
+pydantic==2.9.2
+pydantic-settings==2.5.2
+email-validator==2.2.0
+
+# CORS / env
+python-dotenv==1.0.1

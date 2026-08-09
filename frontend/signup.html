@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create your account — Curoa.AI</title>
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body data-page="signup">
+
+<div class="auth-shell">
+  <div class="auth-form-side">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.svg" alt="">
+      <span class="brand-name">Curoa<span class="ai">.AI</span></span>
+    </a>
+
+    <div class="auth-form-wrap">
+      <h1>Create your account</h1>
+      <p class="auth-sub">Get personalized conversation history and hospital recommendations near you.</p>
+
+      <form id="signup-form" novalidate>
+        <div class="form-alert"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span data-alert-text></span></div>
+
+        <div class="field-group" data-field="full_name">
+          <label for="full_name">Full name</label>
+          <div class="field-input">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21a8 8 0 1 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+            <input type="text" id="full_name" name="full_name" placeholder="Jane Doe" autocomplete="name">
+          </div>
+          <div class="field-error">Enter your full name.</div>
+        </div>
+
+        <div class="field-group" data-field="email">
+          <label for="email">Email address</label>
+          <div class="field-input">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6 12 13 2 6"/><path d="M2 6h20v12H2z"/></svg>
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+          </div>
+          <div class="field-error">Enter a valid email address.</div>
+        </div>
+
+        <div class="field-group" data-field="password">
+          <label for="password">Password</label>
+          <div class="field-input">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <input type="password" id="password" name="password" placeholder="At least 8 characters" autocomplete="new-password">
+            <button type="button" class="toggle-visibility" aria-label="Show password">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div class="field-hint">Use 8+ characters with a mix of letters and numbers.</div>
+          <div class="field-error">Use at least 8 characters.</div>
+        </div>
+
+        <div class="field-group" data-field="confirm_password">
+          <label for="confirm_password">Confirm password</label>
+          <div class="field-input">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter your password" autocomplete="new-password">
+          </div>
+          <div class="field-error">Passwords don't match.</div>
+        </div>
+
+        <div class="field-row-between" style="align-items:flex-start;">
+          <label class="remember-check" style="align-items:flex-start;">
+            <input type="checkbox" name="terms" style="margin-top:2px;">
+            <span>I agree to the Terms of Service and understand Curoa.AI does not replace professional medical advice.</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Create account</button>
+      </form>
+
+      <p class="auth-switch">Already have an account? <a href="login.html">Sign in</a></p>
+
+      <div class="disclaimer">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.3 3.9 1.8 18a1.5 1.5 0 0 0 1.3 2.3h17.8a1.5 1.5 0 0 0 1.3-2.3L13.7 3.9a1.5 1.5 0 0 0-2.6 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <span>Curoa.AI provides general health information and is not a substitute for professional medical advice, diagnosis, or treatment. In an emergency, contact local emergency services immediately.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="auth-art-side">
+    <div class="auth-art-content">
+      <div class="art-eyebrow">Curoa.AI</div>
+      <h2>Understand your health. Take the next step.</h2>
+      <p>Create an account to keep your symptom conversations organized and pick up right where you left off.</p>
+      <div class="art-feature-list">
+        <div class="feature-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Free to get started</div>
+        <div class="feature-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Your data is encrypted and never sold</div>
+        <div class="feature-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Built for everyday symptoms and beyond</div>
+      </div>
+    </div>
+    <svg class="auth-art-pulse" height="60" viewBox="0 0 420 60" fill="none">
+      <path d="M0 30h60l14-22 18 44 16-30 12 16h30l14-26 18 40 16-22h236" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
